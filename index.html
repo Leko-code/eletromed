@@ -11,14 +11,14 @@
   <style>
     body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #fff; color: #333; }
     header { background: #0077b6; color: #fff; padding: 10px 20px; position: sticky; top: 0; z-index: 1000; }
-    header nav { display: flex; justify-content: space-between; align-items: center; }
-    header nav a { color: #fff; text-decoration: none; margin: 0 10px; font-weight: bold; }
+    header nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+    header nav a { color: #fff; text-decoration: none; margin: 5px 10px; font-weight: bold; }
     header nav a:hover { text-decoration: underline; }
 
     .slideshow { position: relative; max-width: 100%; height: 400px; overflow: hidden; }
     .slides {
       display: flex;
-      width: 600%; /* 6 slides = 600% width */
+      width: 600%;
       animation: slide 24s infinite;
     }
     .slides img {
@@ -28,18 +28,12 @@
     }
 
     @keyframes slide {
-      0%   { margin-left: 0%; }
-      15%  { margin-left: 0%; }
-      20%  { margin-left: -100%; }
-      35%  { margin-left: -100%; }
-      40%  { margin-left: -200%; }
-      55%  { margin-left: -200%; }
-      60%  { margin-left: -300%; }
-      75%  { margin-left: -300%; }
-      80%  { margin-left: -400%; }
-      90%  { margin-left: -400%; }
-      95%  { margin-left: -500%; }
-      100% { margin-left: -500%; }
+      0%, 15% { margin-left: 0%; }
+      20%, 35% { margin-left: -100%; }
+      40%, 55% { margin-left: -200%; }
+      60%, 75% { margin-left: -300%; }
+      80%, 90% { margin-left: -400%; }
+      95%, 100% { margin-left: -500%; }
     }
 
     section { padding: 40px 20px; max-width: 1000px; margin: auto; }
@@ -60,6 +54,7 @@
         <a href="servicos.html">Serviços</a>
         <a href="produtos.html">Produtos</a>
         <a href="contactos.html">Contactos</a>
+        <a href="area_trabalhador.html">Login Trabalhador</a>
       </div>
     </nav>
   </header>
@@ -75,10 +70,14 @@
     </div>
   </div>
 
-  <section>
-    <h2>Bem-vindo à ELETROMED, LDA</h2>
-    <p>A sua parceira confiável em equipamentos de saúde e assistência técnica hospitalar e laboratorial em Angola.</p>
-  </section>
+ <section>
+  <h2>Bem-vindo à ELETROMED, LDA</h2>
+  <p>
+    A sua parceira confiável em equipamentos de saúde e assistência técnica hospitalar e laboratorial em Moçambique.
+    Na ELETROMED, LDA, trabalhamos diariamente para garantir qualidade, inovação e suporte técnico especializado, contribuindo para o fortalecimento dos serviços de saúde em todo o país. Seja no fornecimento de equipamentos modernos ou na manutenção especializada, estamos ao seu lado para que possa servir melhor a sua comunidade com eficiência e confiança.
+  </p>
+</section>
+
 
   <footer>
     &copy; 2025 ELETROMED, LDA. Todos os direitos reservados.
