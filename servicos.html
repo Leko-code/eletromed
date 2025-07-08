@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Serviços - ELETROMED, LDA</title>
+<meta name="description" content="Serviços da ELETROMED, LDA - assistência técnica, instalação e consultoria em equipamentos hospitalares e laboratoriais em Moçambique." />
+<meta name="keywords" content="assistência técnica, instalação de equipamentos, consultoria técnica, eletromed, moçambique, saúde" />
+<meta name="author" content="ELETROMED, LDA" />
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #fff;
+    color: #333;
+  }
+  header {
+    background: #0077b6;
+    color: #fff;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+  header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  header nav a {
+    color: #fff;
+    text-decoration: none;
+    margin: 5px 10px;
+    font-weight: 600;
+  }
+  header nav a:hover {
+    text-decoration: underline;
+  }
+  main {
+    max-width: 1000px;
+    margin: 40px auto;
+    padding: 0 20px;
+  }
+  h1 {
+    color: #0077b6;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .services-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  .service-card {
+    background: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    font-weight: 700;
+    color: #005f8a;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.3s ease;
+  }
+  .service-card:hover {
+    background-color: #d9ebfb;
+  }
+
+  /* Área de expansão */
+  .expandable-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    background: #e8f0fa;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    padding: 0 20px;
+    color: #333;
+  }
+  .expandable-content.open {
+    max-height: 400px; /* ajustar conforme conteúdo */
+    padding: 20px;
+  }
+  .expandable-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 15px;
+  }
+  .expandable-content p {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div><strong>ELETROMED, LDA</strong></div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="servicos.html">Serviços</a>
+      <a href="produtos.html">Produtos</a>
+      <a href="contactos.html">Contactos</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <h1>Serviços da ELETROMED, LDA</h1>
+
+  <div class="services-container">
+
+    <div class="service-card" id="assistencia-card" tabindex="0" aria-expanded="false" role="button" aria-controls="assistencia-content">
+      Assistência Técnica
+    </div>
+    <div class="expandable-content" id="assistencia-content" aria-hidden="true">
+      <img src="https://photos.fife.usercontent.google.com/pw/AP1GczO8vLGvuJ6ORc0pzEUjJn8ZfFCfDzji1EtzSFkFH4Y3feg02c1q-D1ef69uX7kQQTdgwaXIo2CkmAx6sflijun5FcBYWA=w1159-h869-s-no-gm?authuser=0" alt="Reparação de autoclave">
+      <p>Prestamos manutenção e reparação especializada para equipamentos hospitalares e laboratoriais, garantindo funcionamento contínuo e seguro. Esta imagem mostra a reparação de uma autoclave realizada por nossa equipa técnica.</p>
+    </div>
+
+    <div class="service-card" tabindex="0">Instalação de Equipamentos</div>
+    <div class="expandable-content" aria-hidden="true">
+      <p>Oferecemos instalação profissional certificada, garantindo operação eficiente desde o primeiro uso, com suporte técnico dedicado.</p>
+    </div>
+
+    <div class="service-card" tabindex="0">Consultoria Técnica</div>
+    <div class="expandable-content" aria-hidden="true">
+      <p>Consultoria especializada para escolha, implementação e otimização de equipamentos e processos hospitalares e laboratoriais.</p>
+    </div>
+
+    <div class="service-card" tabindex="0">Treinamento</div>
+    <div class="expandable-content" aria-hidden="true">
+      <p>Capacitamos sua equipe com treinamentos personalizados para uso adequado e seguro dos equipamentos, promovendo eficiência e segurança.</p>
+    </div>
+
+    <div class="service-card" tabindex="0">Suporte Pós-Venda</div>
+    <div class="expandable-content" aria-hidden="true">
+      <p>Acompanhamento contínuo após a venda, com atendimento rápido e eficaz para solucionar dúvidas e necessidades técnicas.</p>
+    </div>
+
+    <div class="service-card" tabindex="0">Personalização</div>
+    <div class="expandable-content" aria-hidden="true">
+      <p>Desenvolvemos soluções personalizadas para atender às necessidades específicas da sua instituição de saúde.</p>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  &copy; 2025 ELETROMED, LDA. Todos os direitos reservados.
+</footer>
+
+<script>
+  // Função para toggle do conteúdo expandido ao clicar no card
+  document.querySelectorAll('.service-card').forEach((card, i, cards) => {
+    card.addEventListener('click', () => {
+      const content = card.nextElementSibling;
+      const isOpen = content.classList.contains('open');
+
+      // Fecha todos os painéis
+      document.querySelectorAll('.expandable-content').forEach(panel => {
+        panel.classList.remove('open');
+        panel.setAttribute('aria-hidden', 'true');
+      });
+      cards.forEach(c => c.setAttribute('aria-expanded', 'false'));
+
+      // Abre o selecionado se não estava aberto
+      if (!isOpen) {
+        content.classList.add('open');
+        content.setAttribute('aria-hidden', 'false');
+        card.setAttribute('aria-expanded', 'true');
+        // Scroll suave até o conteúdo aberto
+        content.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+
+    // Permite abrir/fechar pelo teclado (Enter ou Espaço)
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        card.click();
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
