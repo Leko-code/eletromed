@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Área do Trabalhador - ELETROMED, LDA</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #fff; color: #333; }
+    header { background: #0077b6; color: #fff; padding: 10px 20px; text-align: center; }
+    header h1 { margin: 0; }
+
+    .login-container { display: flex; justify-content: center; align-items: center; height: 80vh; }
+    .login-box { background: #f9f9f9; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); width: 300px; text-align: center; }
+    .login-box h2 { color: #0077b6; margin-bottom: 20px; }
+    .login-box input { width: 90%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; }
+    .login-box button { background: #0077b6; color: #fff; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-weight: bold; }
+    .login-box button:hover { background: #005f91; }
+
+    .menu { display: none; flex-direction: column; align-items: center; padding: 20px; }
+    .menu a {
+      background: #0077b6; color: #fff; padding: 15px; margin: 10px;
+      text-decoration: none; width: 80%; text-align: center;
+      border-radius: 8px; font-weight: bold; transition: background 0.3s;
+      cursor: pointer;
+      display: block;
+    }
+    .menu a:hover { background: #005f91; }
+
+    footer { background: #333; color: #fff; text-align: center; padding: 20px; position: fixed; bottom: 0; width: 100%; }
+
+    /* Área Departamento Técnico */
+    #departamento-tecnico {
+      max-width: 600px;
+      margin: 20px auto 100px;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: none;
+    }
+    #departamento-tecnico h2 { color: #0077b6; margin-bottom: 15px; }
+    label { display: block; margin: 10px 0 5px; font-weight: bold; }
+    input[type="text"], input[type="date"], textarea, input[type="file"] {
+      width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px;
+    }
+    button {
+      background: #0077b6; color: #fff; border: none; padding: 10px 20px;
+      border-radius: 4px; cursor: pointer; font-weight: bold; margin-top: 15px;
+    }
+    button:hover { background: #005f91; }
+    #btn-voltar {
+      background: #ff4d4d; margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Área do Trabalhador - ELETROMED, LDA</h1>
+  </header>
+
+  <div class="login-container" id="login">
+    <div class="login-box">
+      <h2>Login de Trabalhador</h2>
+      <input type="text" id="username" placeholder="Usuário" />
+      <input type="password" id="password" placeholder="Senha" />
+      <button onclick="login()">Entrar</button>
+      <p id="msg" style="color: red; font-size: 0.9em;"></p>
+    </div>
+  </div>
+
+  <div class="menu" id="menu">
+    <a onclick="mostrarDepartamentoTecnico()"><i class="fas fa-tools"></i> Departamento Técnico</a>
+    <a href="#" onclick="alert('Departamento Comercial em desenvolvimento')"><i class="fas fa-store"></i> Departamento Comercial</a>
+    <a href="#" onclick="alert('Logística em desenvolvimento')"><i class="fas fa-truck"></i> Logística</a>
+    <a href="#" onclick="alert('Administrativa em desenvolvimento')"><i class="fas fa-file-alt"></i> Administrativa</a>
+    <a href="#" onclick="alert('Sala de Controle Geral em desenvolvimento')"><i class="fas fa-chart-line"></i> Sala de Controle Geral</a>
+    <a onclick="logout()" style="background: #ff4d4d;"><i class="fas fa-sign-out-alt"></i> Sair</a>
+  </div>
+
+  <!-- Conteúdo Departamento Técnico -->
+  <div id="departamento-tecnico">
+    <h2>Relatório Técnico</h2>
+    <label for="data">Data</label>
+    <input type="date" id="data" />
+
+    <label for="titulo">Título do Relatório</label>
+    <input type="text" id="titulo" placeholder="Ex: Manutenção Preventiva - Autoclave" />
+
+    <label for="descricao">Descrição</label>
+    <textarea id="descricao" rows="5" placeholder="Descreva detalhadamente os serviços realizados, condições dos equipamentos, peças substituídas, etc."></textarea>
+
+    <label for="foto">Upload de Fotos ou Documentos</label>
+    <input type="file" id="foto" multiple />
+
+    <button onclick="enviarRelatorio()">Enviar Relatório</button>
+
+    <hr style="margin: 30px 0;" />
+
+    <h2>Ficha de Obras</h2>
+    <label for="obra">Nome da Obra</label>
+    <input type="text" id="obra" placeholder="Ex: Instalação de laboratório distrital de Xai-Xai" />
+
+    <label for="detalhes">Detalhes da Obra</label>
+    <textarea id="detalhes" rows="5" placeholder="Detalhe a obra, fases, equipamentos instalados, prazos, etc."></textarea>
+
+    <button onclick="guardarFicha()">Guardar Ficha</button>
+
+    <button id="btn-voltar" onclick="voltarMenu()">Voltar ao Menu</button>
+  </div>
+
+  <footer>
+    &copy; 2025 ELETROMED, LDA. Todos os direitos reservados.
+  </footer>
+
+  <script>
+    function login() {
+      const user = document.getElementById('username').value.trim();
+      const pass = document.getElementById('password').value.trim();
+      const msg = document.getElementById('msg');
+
+      if (user === 'admin' && pass === 'admin') {
+        document.getElementById('login').style.display = 'none';
+        document.getElementById('menu').style.display = 'flex';
+        msg.textContent = '';
+      } else {
+        msg.textContent = 'Usuário ou senha incorretos!';
+      }
+    }
+
+    function logout() {
+      document.getElementById('menu').style.display = 'none';
+      document.getElementById('departamento-tecnico').style.display = 'none';
+      document.getElementById('login').style.display = 'flex';
+      document.getElementById('username').value = '';
+      document.getElementById('password').value = '';
+      document.getElementById('msg').textContent = '';
+    }
+
+    function mostrarDepartamentoTecnico() {
+      document.getElementById('menu').style.display = 'none';
+      document.getElementById('departamento-tecnico').style.display = 'block';
+    }
+
+    function voltarMenu() {
+      document.getElementById('departamento-tecnico').style.display = 'none';
+      document.getElementById('menu').style.display = 'flex';
+      // Limpar campos do departamento técnico ao voltar
+      document.getElementById('data').value = '';
+      document.getElementById('titulo').value = '';
+      document.getElementById('descricao').value = '';
+      document.getElementById('foto').value = '';
+      document.getElementById('obra').value = '';
+      document.getElementById('detalhes').value = '';
+    }
+
+    function enviarRelatorio() {
+      alert('Relatório enviado com sucesso! (Simulação)');
+      // Aqui poderia integrar com backend ou localStorage
+      document.getElementById('data').value = '';
+      document.getElementById('titulo').value = '';
+      document.getElementById('descricao').value = '';
+      document.getElementById('foto').value = '';
+    }
+
+    function guardarFicha() {
+      alert('Ficha de obra guardada com sucesso! (Simulação)');
+      document.getElementById('obra').value = '';
+      document.getElementById('detalhes').value = '';
+    }
+  </script>
+</body>
+</html>
