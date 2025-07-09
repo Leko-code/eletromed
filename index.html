@@ -9,21 +9,75 @@
   <meta name="author" content="ELETROMED, LDA" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
-    body { margin: 0; font-family: 'Segoe UI', sans-serif; background: #fff; color: #333; }
-    header { background: #0077b6; color: #fff; padding: 10px 20px; position: sticky; top: 0; z-index: 1000; }
-    header nav { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-    header nav a { color: #fff; text-decoration: none; margin: 5px 10px; font-weight: bold; }
-    header nav a:hover { text-decoration: underline; }
+    * { box-sizing: border-box; }
 
-    .slideshow { position: relative; max-width: 100%; height: 400px; overflow: hidden; }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #0077b6;
+      color: #fff;
+      padding: 0; /* removido padding lateral */
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    header nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 8px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    header nav a:hover {
+      color: #90e0ef;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    .logo-container img {
+      height: 90px;
+      width: auto; /* mantém proporção */
+      max-width: 100%;
+      object-fit: contain;
+      margin-left: 0; /* colado à borda */
+    }
+
+    .slideshow {
+      position: relative;
+      max-width: 100%;
+      height: 350px;
+      overflow: hidden;
+      border-bottom: 4px solid #0077b6;
+    }
+
     .slides {
       display: flex;
       width: 600%;
       animation: slide 24s infinite;
     }
+
     .slides img {
       width: 100%;
-      height: 400px;
+      height: 350px;
       object-fit: cover;
     }
 
@@ -36,18 +90,61 @@
       95%, 100% { margin-left: -500%; }
     }
 
-    section { padding: 40px 20px; max-width: 1000px; margin: auto; }
-    section h2 { color: #0077b6; margin-bottom: 20px; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .card { background: #f9f9f9; border-radius: 8px; padding: 20px; text-align: center; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
-    footer { background: #333; color: #fff; text-align: center; padding: 20px; }
-    footer a { color: #fff; text-decoration: underline; }
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+      text-align: center;
+    }
+
+    section h2 {
+      color: #0077b6;
+      margin-bottom: 20px;
+      font-size: 1.8rem;
+    }
+
+    section p {
+      max-width: 800px;
+      margin: auto;
+      font-size: 1rem;
+      color: #555;
+    }
+
+    footer {
+      background: #333;
+      height: 140px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 10px;
+    }
+
+    footer img {
+      height: 90px;
+      object-fit: contain;
+    }
+
+    @media (max-width: 600px) {
+      .slides img {
+        height: 250px;
+      }
+
+      .logo-container img {
+        height: 70px;
+      }
+
+      footer img {
+        height: 70px;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
     <nav>
-      <div><strong>ELETROMED, LDA</strong></div>
+      <div class="logo-container">
+        <img src="img/log.png" alt="Logotipo ELETROMED" />
+      </div>
       <div>
         <a href="index.html">Home</a>
         <a href="sobre.html">Sobre</a>
@@ -70,17 +167,16 @@
     </div>
   </div>
 
- <section>
-  <h2>Bem-vindo à ELETROMED, LDA</h2>
-  <p>
-    A sua parceira confiável em equipamentos de saúde e assistência técnica hospitalar e laboratorial em Moçambique.
-    Na ELETROMED, LDA, trabalhamos diariamente para garantir qualidade, inovação e suporte técnico especializado, contribuindo para o fortalecimento dos serviços de saúde em todo o país. Seja no fornecimento de equipamentos modernos ou na manutenção especializada, estamos ao seu lado para que possa servir melhor a sua comunidade com eficiência e confiança.
-  </p>
-</section>
-
+  <section>
+    <h2>Bem-vindo à ELETROMED, LDA</h2>
+    <p>
+      A sua parceira confiável em equipamentos de saúde e assistência técnica hospitalar e laboratorial em Moçambique.
+      Na ELETROMED, LDA, trabalhamos diariamente para garantir qualidade, inovação e suporte técnico especializado, contribuindo para o fortalecimento dos serviços de saúde em todo o país. Seja no fornecimento de equipamentos modernos ou na manutenção especializada, estamos ao seu lado para que possa servir melhor a sua comunidade com eficiência e confiança.
+    </p>
+  </section>
 
   <footer>
-    &copy; 2025 ELETROMED, LDA. Todos os direitos reservados.
+    <img src="img/log.png" alt="Logotipo ELETROMED no rodapé" />
   </footer>
 </body>
 </html>
