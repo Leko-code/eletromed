@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Equipamentos - ELETROMED, LDA</title>
+  <meta name="description" content="Equipamentos hospitalares e laboratoriais fornecidos pela ELETROMED, LDA em Moçambique." />
+  <meta name="keywords" content="lavandaria, fisioterapia, farmácia, laboratório, equipamentos médicos" />
+  <meta name="author" content="ELETROMED, LDA" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #0077b6;
+      color: #fff;
+      padding: 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    header nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      padding: 0 20px;
+    }
+
+    .logo-container img {
+      height: 90px;
+      object-fit: contain;
+    }
+
+    header nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 8px;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    header nav a:hover {
+      color: #90e0ef;
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h1 {
+      color: #0077b6;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .accordion {
+      margin-bottom: 20px;
+      border: 2px solid #0077b6;
+      border-radius: 8px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: background-color 0.3s, box-shadow 0.3s;
+    }
+
+    .accordion-header {
+      background: #e6f7fb;
+      color: #0077b6;
+      padding: 15px;
+      font-weight: bold;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .accordion-header img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
+
+    .accordion:hover {
+      background-color: #0077b6;
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(0, 119, 182, 0.3);
+    }
+
+    .accordion-content {
+      display: none;
+      background: #f1f9fb;
+      padding: 15px;
+    }
+
+    .carousel {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .carousel-item {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      background: #fff;
+      padding: 10px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .carousel-item img {
+      width: 150px;
+      height: auto;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .carousel-item .info {
+      flex: 1;
+    }
+
+    .carousel-item .info h3 {
+      margin: 0 0 10px;
+      color: #0077b6;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo-container">
+      <img src="img/log.png" alt="Logotipo ELETROMED" />
+    </div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="servicos.html">Serviços</a>
+      <a href="produtos.html">Produtos</a>
+      <a href="contactos.html">Contactos</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <h1>Equipamentos</h1>
+
+  <div class="accordion" onclick="toggleAccordion(this)">
+    <div class="accordion-header">
+      <img src="img/eq.png" alt="Ícone Lavandaria" />
+      Lavandaria
+    </div>
+    <div class="accordion-content">
+      <div class="carousel">
+        <div class="carousel-item">
+          <img src="img/lavandaria1.jpg" alt="Máquina de Lavar Industrial" />
+          <div class="info">
+            <h3>Máquina de Lavar Industrial</h3>
+            <p>Alta capacidade, ideal para hospitais e clínicas com grande volume de roupa.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion" onclick="toggleAccordion(this)">
+    <div class="accordion-header">
+      <img src="img/fisio.png" alt="Ícone Fisioterapia" />
+      Fisioterapia
+    </div>
+    <div class="accordion-content">
+      <div class="carousel">
+        <div class="carousel-item">
+          <img src="img/fisio1.jpg" alt="Ultrassom Terapêutico" />
+          <div class="info">
+            <h3>Ultrassom Terapêutico</h3>
+            <p>Equipamento essencial para tratamentos de reabilitação física e dores musculares.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion" onclick="toggleAccordion(this)">
+    <div class="accordion-header">
+      <img src="img/farmacia.png" alt="Ícone Farmácia" />
+      Farmácia
+    </div>
+    <div class="accordion-content">
+      <div class="carousel">
+        <div class="carousel-item">
+          <img src="img/farmacia1.jpg" alt="Frigorífico de Medicamentos" />
+          <div class="info">
+            <h3>Frigorífico de Medicamentos</h3>
+            <p>Conservação ideal de produtos farmacêuticos sensíveis à temperatura.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion" onclick="toggleAccordion(this)">
+    <div class="accordion-header">
+      <img src="img/lab.png" alt="Ícone Laboratório" />
+      Laboratório
+    </div>
+    <div class="accordion-content">
+      <div class="carousel">
+        <div class="carousel-item">
+          <img src="img/lab1.jpg" alt="Centrífuga Clínica" />
+          <div class="info">
+            <h3>Centrífuga Clínica</h3>
+            <p>Usada para separação de amostras sanguíneas em processos laboratoriais.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  function toggleAccordion(accordion) {
+    const content = accordion.querySelector('.accordion-content');
+    const allContents = document.querySelectorAll('.accordion-content');
+    allContents.forEach(c => {
+      if (c !== content) c.style.display = 'none';
+    });
+    content.style.display = content.style.display === 'block' ? 'none' : 'block';
+  }
+</script>
+
+</body>
+</html>
