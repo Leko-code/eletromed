@@ -13,11 +13,12 @@
     font-family: 'Segoe UI', sans-serif;
     background: #fff;
     color: #333;
+    line-height: 1.6;
   }
   header {
     background: #0077b6;
     color: #fff;
-    padding: 10px 20px;
+    padding: 0;
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -27,14 +28,27 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    padding: 0 20px;
+  }
+  .logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .logo-container img {
+    height: 90px;
+    width: auto;
+    object-fit: contain;
   }
   header nav a {
     color: #fff;
     text-decoration: none;
-    margin: 5px 10px;
+    margin: 0 8px;
     font-weight: 600;
+    transition: color 0.3s;
   }
   header nav a:hover {
+    color: #90e0ef;
     text-decoration: underline;
   }
   main {
@@ -47,74 +61,63 @@
     text-align: center;
     margin-bottom: 30px;
   }
-  .lab-equipment-container {
+  .options-container {
     display: flex;
-    gap: 20px;
+    justify-content: center;
+    gap: 40px;
     flex-wrap: wrap;
   }
-  .thumbnail-list {
-    flex: 1 1 150px;
-    max-width: 150px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .thumbnail-list img {
-    width: 100%;
-    height: 90px;
-    object-fit: cover;
-    border-radius: 6px;
+  .option {
     cursor: pointer;
-    border: 3px solid transparent;
-    transition: border-color 0.3s ease;
-  }
-  .thumbnail-list img.active {
-    border-color: #0077b6;
-  }
-  .detail-view {
-    flex: 3 1 600px;
-    background: #f9f9f9;
+    flex: 1 1 300px;
+    max-width: 400px;
+    border: 2px solid #0077b6;
     border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    padding: 15px;
+    text-align: center;
+    transition: background-color 0.3s, box-shadow 0.3s;
   }
-  .detail-view img {
-    width: 100%;
-    max-height: 400px;
+  .option:hover {
+    background-color: #0077b6;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 119, 182, 0.5);
+  }
+  .option img {
+    max-width: 100%;
+    height: 220px;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 8px;
     margin-bottom: 15px;
   }
-  .detail-view h2 {
-    color: #005f8a;
-    margin-bottom: 10px;
-  }
-  .detail-view p {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 10px;
+  .option h2 {
+    margin: 0;
+    font-size: 1.8rem;
   }
   footer {
     background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
+    height: 140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+  footer img {
+    height: 90px;
+    object-fit: contain;
   }
   @media (max-width: 768px) {
-    .lab-equipment-container {
-      flex-direction: column;
-    }
-    .thumbnail-list {
-      max-width: 100%;
-      flex-direction: row;
-      overflow-x: auto;
-    }
-    .thumbnail-list img {
+    .logo-container img {
       height: 70px;
-      flex: 0 0 auto;
     }
-    .detail-view {
-      flex: 1 1 auto;
+    footer img {
+      height: 70px;
+    }
+    .options-container {
+      flex-direction: column;
+      gap: 20px;
+    }
+    .option {
+      max-width: 100%;
     }
   }
 </style>
@@ -123,7 +126,9 @@
 
 <header>
   <nav>
-    <div><strong>ELETROMED, LDA</strong></div>
+    <div class="logo-container">
+      <img src="img/log.png" alt="Logotipo ELETROMED" />
+    </div>
     <div>
       <a href="index.html">Home</a>
       <a href="sobre.html">Sobre</a>
@@ -135,82 +140,27 @@
 </header>
 
 <main>
-  <h1>Equipamentos de Laboratório</h1>
+  <h1>Produtos</h1>
+  <p style="text-align:center; max-width:700px; margin: 0 auto 40px;">
+    Escolha uma categoria para explorar nossos produtos de alta qualidade:
+  </p>
 
-  <div class="lab-equipment-container">
-    <div class="thumbnail-list" role="list" aria-label="Lista de equipamentos de laboratório">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX7Z76ULxcAWcl7The9kpEx2hTBtspY07wOw&s" alt="Microscópio óptico" tabindex="0" class="active" data-index="0" role="listitem" />
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIeM6EyxXoHZXyuzP5860ryVflvKMhB2MriA&s" alt="Centrífuga" tabindex="0" data-index="1" role="listitem" />
-      <img src="https://images.tcdn.com.br/img/img_prod/491309/incubadora_neonatal_grn_mod_millennium_basico_grn_360_1_62c2b3d358ca4b9331dba1de19de9ac0.jpg" alt="Incubadora" tabindex="0" data-index="2" role="listitem" />
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX-0jku3ONalRLO3YHCNjs8Px96fG5T3GriA&s" alt="Autoclave" tabindex="0" data-index="3" role="listitem" />
+  <div class="options-container">
+    <div class="option" onclick="window.location.href='equipamentos.html'" role="button" tabindex="0" onkeypress="if(event.key==='Enter'){window.location.href='equipamentos.html'}" aria-label="Ir para Equipamentos">
+      <img src="img/eq.png" alt="Imagem ilustrativa Equipamentos" />
+      <h2>Equipamentos</h2>
     </div>
 
-    <div class="detail-view" aria-live="polite">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX7Z76ULxcAWcl7The9kpEx2hTBtspY07wOw&s" alt="Microscópio óptico" id="main-image" />
-      <h2 id="equipment-title">Microscópios ópticos</h2>
-      <p>Equipamento utilizado para ampliar imagens de amostras microscópicas, essencial em análises biológicas e clínicas.</p>
+    <div class="option" onclick="window.location.href='consumiveis.html'" role="button" tabindex="0" onkeypress="if(event.key==='Enter'){window.location.href='consumiveis.html'}" aria-label="Ir para Consumíveis">
+      <img src="img/cons.png" alt="Imagem ilustrativa Consumíveis" />
+      <h2>Consumíveis</h2>
     </div>
   </div>
 </main>
 
 <footer>
-  &copy; 2025 ELETROMED, LDA. Todos os direitos reservados.
+  <img src="img/log.png" alt="Logotipo ELETROMED no rodapé" />
 </footer>
-
-<script>
-  const thumbnails = document.querySelectorAll('.thumbnail-list img');
-  const mainImage = document.getElementById('main-image');
-  const title = document.getElementById('equipment-title');
-  const descriptionTexts = [
-    {
-      title: 'Microscópios ópticos',
-      desc: 'Equipamento utilizado para ampliar imagens de amostras microscópicas, essencial em análises biológicas e clínicas.',
-      alt: 'Microscópio óptico',
-      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX7Z76ULxcAWcl7The9kpEx2hTBtspY07wOw&s'
-    },
-    {
-      title: 'Centrífugas',
-      desc: 'Equipamento que utiliza força centrífuga para separar componentes de amostras líquidas, como sangue ou urina.',
-      alt: 'Centrífuga',
-      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIeM6EyxXoHZXyuzP5860ryVflvKMhB2MriA&s'
-    },
-    {
-      title: 'Incubadoras',
-      desc: 'Equipamento que mantém condições controladas de temperatura e umidade para o cultivo de microorganismos ou células.',
-      alt: 'Incubadora',
-      img: 'https://images.tcdn.com.br/img/img_prod/491309/incubadora_neonatal_grn_mod_millennium_basico_grn_360_1_62c2b3d358ca4b9331dba1de19de9ac0.jpg'
-    },
-    {
-      title: 'Autoclaves',
-      desc: 'Equipamento que utiliza vapor sob pressão para esterilizar materiais e instrumentos laboratoriais.',
-      alt: 'Autoclave',
-      img: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQX-0jku3ONalRLO3YHCNjs8Px96fG5T3GriA&s'
-    }
-  ];
-
-  thumbnails.forEach(thumb => {
-    thumb.addEventListener('click', () => {
-      const index = thumb.getAttribute('data-index');
-      updateDetailView(index);
-    });
-    thumb.addEventListener('keydown', e => {
-      if(e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        const index = e.target.getAttribute('data-index');
-        updateDetailView(index);
-      }
-    });
-  });
-
-  function updateDetailView(index) {
-    document.querySelector('.thumbnail-list img.active').classList.remove('active');
-    thumbnails[index].classList.add('active');
-    mainImage.src = descriptionTexts[index].img;
-    mainImage.alt = descriptionTexts[index].alt;
-    title.textContent = descriptionTexts[index].title;
-    title.nextElementSibling.textContent = descriptionTexts[index].desc;
-  }
-</script>
 
 </body>
 </html>
